@@ -21,9 +21,13 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count,
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
                 loff_t *f_pos);
 
+copy_to_user(char __user *buf,  char* ret_buf[], int ret);
+copy_from_user(char *page, const char __user *buf, size_t count);
+
+
 /* Global variables go here */
 
-static *char user_message = "EMPTY\n";
+static char * user_message = "EMPTY\n";
 
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
