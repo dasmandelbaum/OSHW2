@@ -7,7 +7,7 @@
 #include <linux/proc_fs.h>
 #include <linux/vmalloc.h>
 #include <asm-generic/uaccess.h>
-#include <linux/uaccess.h> //https://acassis.wordpress.com/2011/09/21/implicit-declaration-of-function-copy_from_user/
+//#include <linux/uaccess.h> //https://acassis.wordpress.com/2011/09/21/implicit-declaration-of-function-copy_from_user/
 
 MODULE_LICENSE("GPL");  /* Kernel needs this license. */
 
