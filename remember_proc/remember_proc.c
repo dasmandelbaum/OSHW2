@@ -62,7 +62,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     */
    static int finished = 0;
    int ret;
-   char ret_buf[80];
+   char * ret_buf[80];
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
    if (finished) {
