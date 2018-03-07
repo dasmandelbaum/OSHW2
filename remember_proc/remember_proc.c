@@ -12,7 +12,7 @@
 MODULE_LICENSE("GPL");  /* Kernel needs this license. */
 
 #define ENTRY_NAME "remember"
-#define PERMS 0666
+#define PERMS 0777
 #define PARENT NULL
 
 /* Function declarations */
