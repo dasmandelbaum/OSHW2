@@ -22,8 +22,8 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count,
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
                 loff_t *f_pos);
 
-unsigned long copy_to_user(char __user *buf,  char* ret_buf[], int ret);
-unsigned long copy_from_user(char *page, const char __user *buf, size_t count);
+//unsigned long copy_to_user(char __user *buf,  char* ret_buf[], int ret);
+//unsigned long copy_from_user(char *page, const char __user *buf, size_t count);
 
 
 /* Global variables go here */
