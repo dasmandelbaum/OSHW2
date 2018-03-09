@@ -85,7 +85,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    
    if(!message_entered)
    {
-        ret = sprintf(ret_buf, strcat(user_message, "\n"));
+        ret = sprintf(ret_buf, user_message));
    }
    else
    {
@@ -122,7 +122,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
     strcpy(user_message, page);
-    //strcat(user_message, "\n");
+    strcat(user_message, "\0\n");
    
     
     
