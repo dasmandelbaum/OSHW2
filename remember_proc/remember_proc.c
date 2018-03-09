@@ -28,7 +28,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
 
 /* Global variables go here */
 
-static char * user_message = "EMPTY\n";
+char * user_message = "EMPTY\n";
 
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
@@ -112,7 +112,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     printk("User has sent the value of %s\n", page);
     
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
-    strcat(page, "0");
+    strcat(page, "0\n");
     user_message = page;
     /* Free the allocated memory, don't touch. */
     vfree(page); 
