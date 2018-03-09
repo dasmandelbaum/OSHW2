@@ -85,7 +85,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    
    if(!message_entered)
    {
-        ret = sprintf(ret_buf, user_message));
+        ret = sprintf(ret_buf, user_message);
    }
    else
    {
