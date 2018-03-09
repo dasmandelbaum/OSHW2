@@ -111,7 +111,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
    /* Now do something with the data, here we just print it */
     printk("User has sent the value of %s\n", page);
     
-    user_message = page;
+    strcpy(user_message,page);//https://stackoverflow.com/a/308712
     
     /* Free the allocated memory, don't touch. */
     vfree(page); 
