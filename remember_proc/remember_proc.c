@@ -45,7 +45,7 @@ static struct file_operations remember_proc_ops = {
  * module load.  This file is created as /proc/remember. */
 int remember_proc_init(void) {
 
-   proc_create_data(ENTRY_NAME, 0, NULL, &remember_proc_ops, NULL);
+   proc_create_data(ENTRY_NAME, PERMS, NULL, &remember_proc_ops, NULL);
    
    /* This message will print in /var/log/syslog or on the first try. */
    printk("/proc/%s created\n", ENTRY_NAME);
