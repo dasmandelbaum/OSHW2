@@ -56,7 +56,7 @@ int remember_proc_init(void) {
  * /proc/remember. */
 ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
 {
-
+    
    /* Static variable?  What does this do inside a C function? Take a look 
     * at the accepted answer in the link below:
     * http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program
@@ -64,6 +64,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    static int finished = 0;
    int ret;
    char ret_buf[80];
+   char * return_line;
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
    if (finished) {
@@ -81,7 +82,9 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Otherwise, return the saved message written to proc.
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
-   ret = sprintf(ret_buf, &user_message);//TODO: change this line
+   return_line = user_message;
+   printk("return_line is %s", return_line);
+   ret = sprintf(ret_buf, return_line);//TODO: change this line
    printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
       printk("copy to user did not work with %s", user_message);
