@@ -64,7 +64,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     */
    static int finished = 0;
    int ret;
-   //char ret_buf[80];
+   char ret_buf[80];
    char * return_line;
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
@@ -86,7 +86,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    printk("return_line is %s", user_message);
    if(!message_entered)
    {
-        ret = sprintf(ret_buf, user_message);
+        ret = sprintf(ret_buf, strcat(user_message, "\n");
    }
    else
    {
@@ -121,7 +121,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
     strcpy(user_message, page);
-    strcat(user_message, "\n");
+    //strcat(user_message, "\n");
    
     
     
