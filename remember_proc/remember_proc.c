@@ -74,7 +74,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    finished = 1;
 
    /* This message will print in /var/log/syslog or on the first try. */
-   printk("/proc/%s read called.\n", ENTRY_NAME);
+   printk("/proc/%s read called with current string present %s.\n", ENTRY_NAME, user_message);
 
 
    /* Take the string "EMPTY\n" and put it in ret_buf if no current input saved.  
