@@ -82,6 +82,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
    ret = sprintf(ret_buf, user_message);//TODO: change this line
+   printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
       printk("copy to user did not work with %s", user_message);
       ret = -EFAULT;  //failed, let's get out of here
