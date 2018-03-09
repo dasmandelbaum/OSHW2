@@ -83,6 +83,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     * displayed to the user when they read the file. */
    ret = sprintf(ret_buf, user_message);//TODO: change this line
    if(copy_to_user(buf, ret_buf, ret)) {
+        printf("copy to user did not work with %s", user_message);
       ret = -EFAULT;  //failed, let's get out of here
    }
 
@@ -114,7 +115,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     
     /* Free the allocated memory, don't touch. */
     vfree(page); 
-    strcat(user_message, "\n");
+    strcat(user_message, "0\n");
     //test
     //printk("/proc/%s write leaves string present as %s.\n", ENTRY_NAME, user_message);
     /* Return the number of bytes written to the file. */
