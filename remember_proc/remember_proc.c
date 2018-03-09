@@ -28,7 +28,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
 
 /* Global variables go here */
 
-static char * user_message = "EMPTY\n";
+char * user_message = "EMPTY\n";
 
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
@@ -81,7 +81,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Otherwise, return the saved message written to proc.
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
-   ret = sprintf(ret_buf, user_message);//TODO: change this line
+   ret = sprintf(ret_buf, &user_message);//TODO: change this line
    printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
       printk("copy to user did not work with %s", user_message);
