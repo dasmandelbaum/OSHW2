@@ -82,15 +82,17 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Otherwise, return the saved message written to proc.
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
-   printk("return_line is %s", user_message);
+   
    if(!message_entered)
    {
         ret = sprintf(ret_buf, strcat(user_message, "\n"));
    }
    else
    {
-        ret = sprintf(ret_buf, "EMPTY\n");
+        strcpy(user_message, "EMPTY\n");
+        ret = sprintf(ret_buf, user_message);
    }
+   printk("return_line is %s", user_message);
    printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
       printk("copy to user did not work with %s", user_message);
