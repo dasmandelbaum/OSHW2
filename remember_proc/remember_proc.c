@@ -110,14 +110,14 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
     user_message = page;
-    strcat(user_message, "\n");
-   /* Now do something with the data, here we just print it */
-    printk("User has sent the value of %s\n", user_message);
+    //strcat(user_message, "\n");
+   
     
     
     /* Free the allocated memory, don't touch. */
     vfree(page); 
-    
+    /* Now do something with the data, here we just print it */
+    printk("User has sent the value of %s\n", user_message);
     //test
     //printk("/proc/%s write leaves string present as %s.\n", ENTRY_NAME, user_message);
     /* Return the number of bytes written to the file. */
