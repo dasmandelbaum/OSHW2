@@ -28,8 +28,6 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
 
 /* Global variables go here */
 
-char * user_message = "EMPTY\n";
-
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
  * modify. (structs in C are like objects in other languages.)
@@ -62,6 +60,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     * http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program
     */
    static int finished = 0;
+   static char * user_message = "EMPTY\n";
    int ret;
    char ret_buf[80];
 
