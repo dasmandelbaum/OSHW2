@@ -3,7 +3,9 @@
 #Last updated: 11.26.17
 echo git pull
 echo make clean
+wait 1
 echo make
+wait 3
 echo sudo insmod remember_proc.ko
 echo cat /proc/remember
 echo "new test 1" > /proc/remember
