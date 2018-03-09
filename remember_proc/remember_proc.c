@@ -92,10 +92,10 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
         strcpy(user_message, "EMPTY\n");
         ret = sprintf(ret_buf, user_message);
    }
-   printk("return_line is %s", user_message);
+   printk("return_line is...");
    printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
-      printk("copy to user did not work with %s", user_message);
+      //printk("copy to user did not work with %s", user_message);
       ret = -EFAULT;  //failed, let's get out of here
    }
 
@@ -129,7 +129,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     /* Free the allocated memory, don't touch. */
     vfree(page); 
     /* Now do something with the data, here we just print it */
-    printk("User has sent the value of %s\n", user_message);
+    printk("User has sent message\n");
     message_entered = 1;
     //test
     //printk("/proc/%s write leaves string present as %s.\n", ENTRY_NAME, user_message);
