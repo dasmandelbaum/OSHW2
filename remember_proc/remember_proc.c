@@ -110,7 +110,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
     user_message = page;
-    //strcat(user_message, "\n");
+    strcat(user_message, "\n");
    
     
     
