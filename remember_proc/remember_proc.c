@@ -65,7 +65,6 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    static int finished = 0;
    int ret;
    char ret_buf[80];
-   char * return_line;
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
    if (finished) {
@@ -86,7 +85,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    printk("return_line is %s", user_message);
    if(!message_entered)
    {
-        ret = sprintf(ret_buf, strcat(user_message, "\n");
+        ret = sprintf(ret_buf, strcat(user_message, "\n"));
    }
    else
    {
