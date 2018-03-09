@@ -28,7 +28,8 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
 
 /* Global variables go here */
 
-char * user_message = "EMPTY\n";
+char user_message[80];
+int message_entered = 0;
 
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
@@ -63,7 +64,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     */
    static int finished = 0;
    int ret;
-   char ret_buf[80];
+   //char ret_buf[80];
    char * return_line;
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
@@ -82,9 +83,15 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Otherwise, return the saved message written to proc.
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
-   return_line = user_message;
-   printk("return_line is %s", return_line);
-   ret = sprintf(ret_buf, return_line);//TODO: change this line
+   printk("return_line is %s", user_message);
+   if(!message_entered)
+   {
+        ret = sprintf(ret_buf, user_message);
+   }
+   else
+   {
+        ret = sprintf(ret_buf, "EMPTY\n");
+   }
    printk("ret equals %d", ret);
    if(copy_to_user(buf, ret_buf, ret)) {
       printk("copy to user did not work with %s", user_message);
@@ -113,7 +120,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     }
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
-    user_message = page;
+    strcpy(user_message, page);
     strcat(user_message, "\n");
    
     
@@ -122,6 +129,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     vfree(page); 
     /* Now do something with the data, here we just print it */
     printk("User has sent the value of %s\n", user_message);
+    message_entered = 1;
     //test
     //printk("/proc/%s write leaves string present as %s.\n", ENTRY_NAME, user_message);
     /* Return the number of bytes written to the file. */
