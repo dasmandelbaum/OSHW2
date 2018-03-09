@@ -83,7 +83,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
    
-   if(!message_entered)
+   if(message_entered == 1)
    {
         ret = sprintf(ret_buf, user_message);
    }
@@ -122,7 +122,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
     strcpy(user_message, page);
-    strcat(user_message, "\0\n");
+    strcat(user_message, "\n");
    
     
     
