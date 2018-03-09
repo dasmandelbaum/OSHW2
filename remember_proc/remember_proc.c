@@ -28,7 +28,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count,
 
 /* Global variables go here */
 
-char * user_message = "EMPTY\n";
+static char * user_message = "EMPTY\n";
 
 /* This global structure is necessary to bind the regular file read and write 
  * operations to our special "read" and "write" functions instead. Don't
@@ -94,7 +94,6 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
  * /proc/remember. */
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
-
     char *page; /* don't touch */
     
     /* Allocating kernel memory, don't touch. */
