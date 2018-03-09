@@ -83,7 +83,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     * displayed to the user when they read the file. */
    ret = sprintf(ret_buf, user_message);//TODO: change this line
    if(copy_to_user(buf, ret_buf, ret)) {
-        printf("copy to user did not work with %s", user_message);
+      printk("copy to user did not work with %s", user_message);
       ret = -EFAULT;  //failed, let's get out of here
    }
 
