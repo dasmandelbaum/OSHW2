@@ -63,8 +63,6 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     * http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program
     */
    static int finished = 0;
-   //int ret;
-  // char ret_buf[80];
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
    if (finished) {
@@ -82,24 +80,14 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
       Otherwise, return the saved message written to proc.
       Copy ret_buf into the user-space buffer called buf.  buf is what gets
     * displayed to the user when they read the file. */
-   
-   if(message_entered == 1)
-   {
-        //ret = sprintf(ret_buf,"%s", user_message);
-   }
-   else
+   if(message_entered == 0)
    {
         strcpy(user_message, "EMPTY\n\0");
-       // ret = sprintf(ret_buf,"%s", user_message);
    }
-   printk("return_line is...");
-  // printk("ret equals %d", ret);
    if(copy_to_user(buf, user_message, 80)) {
       printk("copy to user did not work");
-      //ret = -EFAULT;  //failed, let's get out of here
    }
 
-   /* Returning the number of characters returned to the reader. */
    return sizeof(user_message);
 }
 
@@ -107,33 +95,15 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
  * /proc/remember. */
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
-    //char *page; /* don't touch */
-    
-    /* Allocating kernel memory, don't touch. */
-    /*page = (char *) vmalloc(count);
-    if (!page)
-       return -ENOMEM;   */
-    user_message[0] = 0;//wipe clean
+    user_message[0] = 0;//wipe clean - http://www.cplusplus.com/forum/general/28649/
 
     /* Copy the data from the user space.  Data is placed in page. */ 
     if (copy_from_user(user_message, buf, count)) {
-       //vfree(page);
        return -EFAULT;
     }
-    //strcpy(user_message,page);//https://stackoverflow.com/a/308712
-   // strcat(page, "0\n");
-    //strcpy(user_message, page);
-    //strcat(user_message, "\n\0");
-   
-    
-    
-    /* Free the allocated memory, don't touch. */
-    //vfree(page); 
-    /* Now do something with the data, here we just print it */
+ 
     printk("User has sent message\n");
     message_entered = 1;
-    //test
-    //printk("/proc/%s write leaves string present as %s.\n", ENTRY_NAME, user_message);
     /* Return the number of bytes written to the file. */
     return count;
 }
