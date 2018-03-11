@@ -1,0 +1,174 @@
+david@david-VirtualBox:~/Desktop$ ls *.deb
+linux-cloud-tools-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+linux-headers-4.13.0-36_4.13.0-36.40~16.04.1_all.deb
+linux-headers-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+linux-hwe-cloud-tools-4.13.0-36_4.13.0-36.40~16.04.1_amd64.deb
+linux-hwe-tools-4.13.0-36_4.13.0-36.40~16.04.1_amd64.deb
+linux-image-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+linux-image-extra-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+linux-tools-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+david@david-VirtualBox:~/Desktop$ sudo dpkg -i linux*4.13.0-36.40*.deb
+[sudo] password for david: 
+Selecting previously unselected package linux-cloud-tools-4.13.0-36-generic.
+(Reading database ... 190291 files and directories currently installed.)
+Preparing to unpack linux-cloud-tools-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-cloud-tools-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-headers-4.13.0-36.
+Preparing to unpack linux-headers-4.13.0-36_4.13.0-36.40~16.04.1_all.deb ...
+Unpacking linux-headers-4.13.0-36 (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-headers-4.13.0-36-generic.
+Preparing to unpack linux-headers-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-headers-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-hwe-cloud-tools-4.13.0-36.
+Preparing to unpack linux-hwe-cloud-tools-4.13.0-36_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-hwe-cloud-tools-4.13.0-36 (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-hwe-tools-4.13.0-36.
+Preparing to unpack linux-hwe-tools-4.13.0-36_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-hwe-tools-4.13.0-36 (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-image-4.13.0-36-generic.
+Preparing to unpack linux-image-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Done.
+Unpacking linux-image-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-image-extra-4.13.0-36-generic.
+Preparing to unpack linux-image-extra-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-image-extra-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Selecting previously unselected package linux-tools-4.13.0-36-generic.
+Preparing to unpack linux-tools-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-tools-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Setting up linux-headers-4.13.0-36 (4.13.0-36.40~16.04.1) ...
+Setting up linux-headers-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+dpkg: dependency problems prevent configuration of linux-hwe-cloud-tools-4.13.0-36:
+ linux-hwe-cloud-tools-4.13.0-36 depends on linux-cloud-tools-common; however:
+  Package linux-cloud-tools-common is not installed.
+
+dpkg: error processing package linux-hwe-cloud-tools-4.13.0-36 (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-hwe-tools-4.13.0-36:
+ linux-hwe-tools-4.13.0-36 depends on linux-tools-common; however:
+  Package linux-tools-common is not installed.
+
+dpkg: error processing package linux-hwe-tools-4.13.0-36 (--install):
+ dependency problems - leaving unconfigured
+Setting up linux-image-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Running depmod.
+update-initramfs: deferring update (hook will be called later)
+Examining /etc/kernel/postinst.d.
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+update-initramfs: Generating /boot/initrd.img-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/pm-utils 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/unattended-upgrades 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/update-notifier 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+Generating grub configuration file ...
+Warning: Setting GRUB_TIMEOUT to a non-zero value when GRUB_HIDDEN_TIMEOUT is set is no longer supported.
+Found linux image: /boot/vmlinuz-4.13.0-36-generic
+Found initrd image: /boot/initrd.img-4.13.0-36-generic
+Found linux image: /boot/vmlinuz-4.10.0-28-generic
+Found initrd image: /boot/initrd.img-4.10.0-28-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+done
+Setting up linux-image-extra-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+update-initramfs: Generating /boot/initrd.img-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/pm-utils 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/unattended-upgrades 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/update-notifier 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+Generating grub configuration file ...
+Warning: Setting GRUB_TIMEOUT to a non-zero value when GRUB_HIDDEN_TIMEOUT is set is no longer supported.
+Found linux image: /boot/vmlinuz-4.13.0-36-generic
+Found initrd image: /boot/initrd.img-4.13.0-36-generic
+Found linux image: /boot/vmlinuz-4.10.0-28-generic
+Found initrd image: /boot/initrd.img-4.10.0-28-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+done
+dpkg: dependency problems prevent configuration of linux-tools-4.13.0-36-generic:
+ linux-tools-4.13.0-36-generic depends on linux-hwe-tools-4.13.0-36; however:
+  Package linux-hwe-tools-4.13.0-36 is not configured yet.
+
+dpkg: error processing package linux-tools-4.13.0-36-generic (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-cloud-tools-4.13.0-36-generic:
+ linux-cloud-tools-4.13.0-36-generic depends on linux-hwe-cloud-tools-4.13.0-36; however:
+  Package linux-hwe-cloud-tools-4.13.0-36 is not configured yet.
+
+dpkg: error processing package linux-cloud-tools-4.13.0-36-generic (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ linux-hwe-cloud-tools-4.13.0-36
+ linux-hwe-tools-4.13.0-36
+ linux-tools-4.13.0-36-generic
+ linux-cloud-tools-4.13.0-36-generic
+david@david-VirtualBox:~/Desktop$ uname -a
+Linux david-VirtualBox 4.10.0-28-generic #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+
+david@david-VirtualBox:~/Desktop$ sudo dpkg -i linux-headers-4.13.0-36_4.13.0-36.40~16.04.1_all.deb
+(Reading database ... 225288 files and directories currently installed.)
+Preparing to unpack linux-headers-4.13.0-36_4.13.0-36.40~16.04.1_all.deb ...
+Unpacking linux-headers-4.13.0-36 (4.13.0-36.40~16.04.1) over (4.13.0-36.40~16.04.1) ...
+Setting up linux-headers-4.13.0-36 (4.13.0-36.40~16.04.1) ...
+david@david-VirtualBox:~/Desktop$ sudo dpkg -i linux-headers-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+(Reading database ... 225288 files and directories currently installed.)
+Preparing to unpack linux-headers-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-headers-4.13.0-36-generic (4.13.0-36.40~16.04.1) over (4.13.0-36.40~16.04.1) ...
+Setting up linux-headers-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+david@david-VirtualBox:~/Desktop$ sudo dpkg -i linux-image-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+(Reading database ... 225288 files and directories currently installed.)
+Preparing to unpack linux-image-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Done.
+Unpacking linux-image-4.13.0-36-generic (4.13.0-36.40~16.04.1) over (4.13.0-36.40~16.04.1) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+Setting up linux-image-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+Running depmod.
+update-initramfs: deferring update (hook will be called later)
+Not updating initrd symbolic links since we are being updated/reinstalled 
+(4.13.0-36.40~16.04.1 was configured last, according to dpkg)
+Not updating image symbolic links since we are being updated/reinstalled 
+(4.13.0-36.40~16.04.1 was configured last, according to dpkg)
+Examining /etc/kernel/postinst.d.
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+update-initramfs: Generating /boot/initrd.img-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/pm-utils 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/unattended-upgrades 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/update-notifier 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+Generating grub configuration file ...
+Warning: Setting GRUB_TIMEOUT to a non-zero value when GRUB_HIDDEN_TIMEOUT is set is no longer supported.
+Found linux image: /boot/vmlinuz-4.13.0-36-generic
+Found initrd image: /boot/initrd.img-4.13.0-36-generic
+Found linux image: /boot/vmlinuz-4.10.0-28-generic
+Found initrd image: /boot/initrd.img-4.10.0-28-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+done
+david@david-VirtualBox:~/Desktop$ sudo dpkg -i linux-image-extra-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb
+(Reading database ... 225288 files and directories currently installed.)
+Preparing to unpack linux-image-extra-4.13.0-36-generic_4.13.0-36.40~16.04.1_amd64.deb ...
+Unpacking linux-image-extra-4.13.0-36-generic (4.13.0-36.40~16.04.1) over (4.13.0-36.40~16.04.1) ...
+Setting up linux-image-extra-4.13.0-36-generic (4.13.0-36.40~16.04.1) ...
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+update-initramfs: Generating /boot/initrd.img-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/pm-utils 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/unattended-upgrades 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/update-notifier 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.13.0-36-generic /boot/vmlinuz-4.13.0-36-generic
+Generating grub configuration file ...
+Warning: Setting GRUB_TIMEOUT to a non-zero value when GRUB_HIDDEN_TIMEOUT is set is no longer supported.
+Found linux image: /boot/vmlinuz-4.13.0-36-generic
+Found initrd image: /boot/initrd.img-4.13.0-36-generic
+Found linux image: /boot/vmlinuz-4.10.0-28-generic
+Found initrd image: /boot/initrd.img-4.10.0-28-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+done
+david@david-VirtualBox:~/Desktop$ uname -a
+Linux david-VirtualBox 4.10.0-28-generic #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+
