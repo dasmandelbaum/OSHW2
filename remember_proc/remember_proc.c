@@ -113,7 +113,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     /*page = (char *) vmalloc(count);
     if (!page)
        return -ENOMEM;   */
-    strcpy(user_message, "");//wipe clean
+    user_message = "";//wipe clean
 
     /* Copy the data from the user space.  Data is placed in page. */ 
     if (copy_from_user(user_message, buf, count)) {
