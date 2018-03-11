@@ -85,14 +85,13 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    
    if(message_entered == 1)
    {
-       // ret = sprintf(ret_buf, user_message);
+        ret = sprintf(ret_buf,"%s", user_message);
    }
    else
    {
         strcpy(user_message, "EMPTY\n\0");
-        //ret = sprintf(ret_buf, user_message);
+        ret = sprintf(ret_buf,"%s", user_message);
    }
-   ret = 1;
    printk("return_line is...");
    printk("ret equals %d", ret);
    if(copy_to_user(buf, user_message, ret)) {
