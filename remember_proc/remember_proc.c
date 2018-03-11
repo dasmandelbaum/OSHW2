@@ -89,7 +89,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    }
    else
    {
-        strcpy(user_message, "EMPTY\n");
+        strcpy(user_message, "EMPTY\0\n");
         ret = sprintf(ret_buf, user_message);
    }
    printk("return_line is...");
