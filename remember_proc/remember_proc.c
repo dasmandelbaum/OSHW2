@@ -100,7 +100,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    }
 
    /* Returning the number of characters returned to the reader. */
-   return 1;
+   return sizeof(user_message);
 }
 
 /* This function is called when someone tries to WRITE to the file
