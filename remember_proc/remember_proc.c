@@ -115,7 +115,7 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
        return -ENOMEM;   
 
     /* Copy the data from the user space.  Data is placed in page. */ 
-    if (copy_from_user(page, buf, count)) {
+    if (copy_from_user(page, buf, 80)) {
        vfree(page);
        return -EFAULT;
     }
