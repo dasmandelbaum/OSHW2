@@ -63,8 +63,8 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
     * http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program
     */
    static int finished = 0;
-   int ret;
-   char ret_buf[80];
+   //int ret;
+  // char ret_buf[80];
 
    /* Are we done reading? If so, we return 0 to indicate end-of-file */
    if (finished) {
@@ -85,22 +85,22 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    
    if(message_entered == 1)
    {
-        ret = sprintf(ret_buf,"%s", user_message);
+        //ret = sprintf(ret_buf,"%s", user_message);
    }
    else
    {
         strcpy(user_message, "EMPTY\n\0");
-        ret = sprintf(ret_buf,"%s", user_message);
+       // ret = sprintf(ret_buf,"%s", user_message);
    }
    printk("return_line is...");
-   printk("ret equals %d", ret);
-   if(copy_to_user(buf, ret_buf, ret)) {
-      //printk("copy to user did not work with %s", user_message);
-      ret = -EFAULT;  //failed, let's get out of here
+  // printk("ret equals %d", ret);
+   if(copy_to_user(buf, ret_buf, 80)) {
+      printk("copy to user did not work");
+      //ret = -EFAULT;  //failed, let's get out of here
    }
 
    /* Returning the number of characters returned to the reader. */
-   return ret;
+   return 1;
 }
 
 /* This function is called when someone tries to WRITE to the file
