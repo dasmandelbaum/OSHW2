@@ -94,7 +94,7 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
    }
    printk("return_line is...");
    printk("ret equals %d", ret);
-   if(copy_to_user(buf, ret_buf, 80)) {
+   if(copy_to_user(buf, ret_buf, ret)) {
       //printk("copy to user did not work with %s", user_message);
       ret = -EFAULT;  //failed, let's get out of here
    }
