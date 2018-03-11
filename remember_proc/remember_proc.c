@@ -107,27 +107,27 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
  * /proc/remember. */
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
-    char *page; /* don't touch */
+    //char *page; /* don't touch */
     
     /* Allocating kernel memory, don't touch. */
-    page = (char *) vmalloc(count);
+    /*page = (char *) vmalloc(count);
     if (!page)
-       return -ENOMEM;   
+       return -ENOMEM;   */
 
     /* Copy the data from the user space.  Data is placed in page. */ 
-    if (copy_from_user(page, buf, count)) {
-       vfree(page);
+    if (copy_from_user(user_message, buf, count)) {
+       //vfree(page);
        return -EFAULT;
     }
     //strcpy(user_message,page);//https://stackoverflow.com/a/308712
    // strcat(page, "0\n");
-    strcpy(user_message, page);
-    strcat(user_message, "\n\0");
+    //strcpy(user_message, page);
+    //strcat(user_message, "\n\0");
    
     
     
     /* Free the allocated memory, don't touch. */
-    vfree(page); 
+    //vfree(page); 
     /* Now do something with the data, here we just print it */
     printk("User has sent message\n");
     message_entered = 1;
